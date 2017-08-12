@@ -13,7 +13,7 @@
   position: absolute;
 	width: 200px;
 	height: auto;
-	background-color:  	#9370DB;
+	background-color:  	#2D3986;
 }
 .border{
   border: 8px solid #666;
@@ -36,7 +36,7 @@
   top: -8px;
 	bottom: auto;
 	border: 32px solid;
-	border-color:  	#9370DB transparent transparent transparent;
+	border-color:  	#2D3986 transparent transparent transparent;
 }
 .tri-right.left-top:after{
 	content: ' ';
@@ -48,7 +48,7 @@
   top: 0px;
 	bottom: auto;
 	border: 22px solid;
-	border-color:  	#9370DB transparent transparent transparent;
+	border-color:  	#2D3986 transparent transparent transparent;
 }
 
 /* talk bubble contents */
@@ -58,14 +58,45 @@
   line-height: 1.5em;
 }
 .talktext p{
-  color: black;
+  color: white;
   /* remove webkit p margins */
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
   }</STYLE>
+<meta charset="utf-8">
+<center>
 <img src="https://github.com/TechEducationPlusPlus/Avatar/raw/master/bad_boy.png">
 <div class="talk-bubble tri-right left-top">
   <div class="talktext">
-    <p>Hi!</p>
+    <p id="0">Hi!</p>
+    <p id="1">Nice to meet you. I'm Amon.</p>
+    <p id="2">First lesson for today is introduction to C++.</p>
+    <p id="3">First of all you must install Code::Blocks.</p>
+    <p id="4">...</p>
+		<button><big><big><big>⇨</big></big></big></button>
   </div>
 </div>
+</center>
+<script>
+var ind = 0;
+for (var x of document.getElementsByTagName ("p"))
+{
+	x.style = "display: none;";
+}
+document.getElementsByTagName ("p") [ind].style = "";
+document.getElementsByTagName ("button")[0].onclick = function ()
+{
+	ind ++;
+	ind = ind % document.getElementsByTagName ("p").length;
+	for (var x of document.getElementsByTagName ("p"))
+	{
+		x.style = "display: none;";
+	}
+	document.getElementsByTagName ("p") [ind].style = "";
+};
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+			document.getElementsByTagName ("button")[0].onclick ();
+    }
+}
+</script>
