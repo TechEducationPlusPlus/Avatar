@@ -1,0 +1,7 @@
+echo "# Avatar" > README.md
+git init
+git add -A
+git commit -m "first commit"
+git remote add origin https://github.com/TechEducationPlusPlus/Avatar.git
+git push -u origin master
+
